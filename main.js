@@ -1,41 +1,12 @@
-<!DOCTYPE html>
-<head> 
-  <meta charset="utf-8">
-  <title> Text in Conversation | Research Visualization </title> 
-  <link rel="stylesheet" href="main.css">
-  <script src="http://d3js.org/d3.v3.min.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-</head>
-
-<body>
-  <div id="notes" >
-          <p><strong>hello</strong></p>
-          <p><span id="value">100</span>%</p>
-  </div>
-
-
-<script>
-
-$(document).ready(function(){
-    $( "#notes" ).hover(
-    function() {
-      $( this ).append( $( "<span> ***</span>" ) );
-    }, function() {
-      $( this ).find( "span:last" ).remove();
-    }
-  );
-
-});
-
 var nodes = [
-  {name: "Microsoft", "url": "www.google.com"},
-  {name: "Amazon", "url": "www.google.com"},
-  {name: "HTC", "url": "www.google.com"},
-  {name: "Samsung", "url": "www.google.com"},
-  {name: "Apple", "url": "www.google.com"},
-  {name: "Nokia", "url": "www.google.com"},
-  {name: "HTC", "url": "www.google.com"},
-  {name: "Barnes & Noble", "url": "www.google.com"}
+  {name: "Microsoft"},
+  {name: "Amazon"},
+  {name: "HTC"},
+  {name: "Samsung"},
+  {name: "Apple"},
+  {name: "Nokia"},
+  {name: "HTC"},
+  {name: "Barnes & Noble"}
 ];
 
 var links = [
@@ -88,10 +59,29 @@ var path = svg.append("g").selectAll("path")
 var circle = svg.append("g").selectAll("circle")
     .data(force.nodes())
   .enter().append("circle")
-    .attr("r", 6) 
-    .on('click', function(d, i) {
-      window.location.href = d.url;
+    .attr("r", 6)
+
+    //show text
+  .on("mouseover", function(d) {
+
+    //Get this bar's x/y values, then augment for the tooltip
+    // var xPosition = parseFloat(d3.select(this).attr("x")) + xScale.rangeBand() / 2;
+    // var yPosition = parseFloat(d3.select(this).attr("y")) / 2 + h / 2;
+
+    //Update the tooltip position and value
+    d3.select("#tooltip")
+      .style("left", 0 + "px")
+      .style("top", 0 + "px")
+      .select("#value")
+      .text(d);
+    //Show the tooltip
+    d3.select("#tooltip").classed("hidden", false);
     })
+    
+    .on("mouseout", function() {
+    //Hide the tooltip
+    d3.select("#tooltip").classed("hidden", true);
+  })
     .call(force.drag);
 
 var text = svg.append("g").selectAll("text")
@@ -99,13 +89,20 @@ var text = svg.append("g").selectAll("text")
   .enter().append("text")
     .attr("x", 12)
     .attr("y", ".31em")
-    .attr("xlink:href", function (d) {
-        return "http://google.com/" + d.name;
-    })
     .text(function(d) { return d.name; });
 
-        //show text
-    
+d3.select(".circle")
+  .on("mouseover", function(){return tooltip.style("visibility", "visible");})
+  .on("mousemove", function(){return tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px");})
+  .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
+
+
+
+function mouseover(d) {
+    // d is the node object
+    // You can even get mouse position with this command
+    var mousePos = d3.mouse(this);
+}
 
 // Use elliptical arc path segments to doubly-encode directionality.
 function tick() {
@@ -124,5 +121,3 @@ function linkArc(d) {
 function transform(d) {
   return "translate(" + d.x + "," + d.y + ")";
 }
-</script>
-</body> 
