@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <title> Text in Conversation | Research Visualization </title> 
   <link rel="stylesheet" href="main.css">
-  <link href='http://fonts.googleapis.com/css?family=Lato:300,400|Source+Sans+Pro:300,400' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Lato:300,400,300italic|Source+Sans+Pro:300,400' rel='stylesheet' type='text/css'>
   <script src="http://d3js.org/d3.v3.min.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
@@ -14,9 +14,31 @@
     <h3>Text in Conversation | Vincent Chen<h3> 
     <h1>Millennial Education: A Culture of "Getting In"</h1>
     <div class="scroll">
-    <h2 id="source1"> Source 1 </h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi lobortis vitae dolor condimentum aliquam. Nam congue, diam sit amet venenatis luctus, risus massa eleifend magna, et luctus erat elit sed urna. Sed auctor mattis enim vel eleifend. In blandit sem a pharetra imperdiet. Donec placerat enim vulputate semper malesuada. Donec vulputate libero sed justo bibendum imperdiet. Mauris tincidunt turpis elit, eget porttitor lectus porta in. Donec dapibus ante quis nulla elementum, vel lobortis justo congue. Maecenas sed maximus leo. Maecenas et arcu ultrices, suscipit ipsum vel, interdum ligula. Phasellus auctor consectetur mi vel venenatis. Donec eleifend nisl sit amet sapien ultrices interdum. Nulla ac rhoncus turpis, sit amet malesuada lacus. Pellentesque sit amet justo eros. Sed ut erat nec risus blandit mattis. Ut nunc urna, ultrices a nisi eu, condimentum hendrerit nulla.</p>
+    
+    <div id="source1"> 
+    <h2 > "The New Student" (Fred B. Newton) </h2>
+    <p style="text-indent: -30px; margin-left: 30px;line-height: 1 ">Citation: </br>Newton, Fred. "The New Student." <i>About Campus</i> 5.5 (2000): 1-32. <i>Wiley Online Library. </i>Web.
+    </p>
+    <hr> 
+    <p>In his publication to <i>About Campus</i>, Dr. Fred B. Newton targets educators with a call to action to better understand a new “breed” of students on campus, namely the millennial generation. Newton structures his article by first identifying the characteristics of the millennial student, then offering explanation for the dynamics of these student changes, and finally calling for methods to influence the millennial student. </p>
+    
+    <p> In careful analysis of students, Newton identifies that “students entering college have had greater exposure and more experimentation with ‘grown-up’ activity than any previous generation.” As students are experimenting with sex, drugs, money spending, or even lifestyle options, the onset of puberty has grown closer to ten years old, as opposed to the old norm of thirteen. Newton’s conjecture is supported by personal accounts in which students felt like they had “more time to experiment and act out in middle and high school well before arriving at college.” Additionally, Newton labels Millennials as the “home alone” generation – the consequence of parents who compensate for the lack of emotional support with indulgence. </p> 
+    
+    <p>On the subject of Millennial characteristics, Newton briefly goes into gender differences related to stress and anxiety from a 1999 study of UCLA freshmen. He found that women were typically more stressed than men.</p>
+    
+    <p class="quote">“I want it all, the career now [meaning upon graduation], the family [in five to ten years], the nice home with a comfortable lifestyle, and the enjoyment of travel and leisure activity." 
+    </p>
 
+    <p>Overall, however, all students, male and female, commanded very competitive salaries.<p> 
+      <p class="quote">“Students are ambitious in their career aspirations yet frequently have unrealistic expectations about what it takes to achieve these goals.” </p>
+    <p> Newton pointed out that the process of matching students and good jobs would soon go deeper than “getting in the door” of employment. </p>
+
+    <p> 
+    In tackling the influence that faculty could have on students, Newton urged consciousness about differing attitudes and beliefs of Millennial students towards education. He suggested that educators must understand how we model what is important and valued as higher learning to students.</p> 
+    <p class="quote">“We must not lose sight of the value that make the academy a place where students develop fully as citizens and not as robots following a prescribed set of behaviors with a bottom-line economic value.”</p>
+    </p>
+    <hr>
+    </div>
 
     <h2 id="source2"> Source 2 </h2>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi lobortis vitae dolor condimentum aliquam. Nam congue, diam sit amet venenatis luctus, risus massa eleifend magna, et luctus erat elit sed urna. Sed auctor mattis enim vel eleifend. In blandit sem a pharetra imperdiet. Donec placerat enim vulputate semper malesuada. Donec vulputate libero sed justo bibendum imperdiet. Mauris tincidunt turpis elit, eget porttitor lectus porta in. Donec dapibus ante quis nulla elementum, vel lobortis justo congue. Maecenas sed maximus leo. Maecenas et arcu ultrices, suscipit ipsum vel, interdum ligula. Phasellus auctor consectetur mi vel venenatis. Donec eleifend nisl sit amet sapien ultrices interdum. Nulla ac rhoncus turpis, sit amet malesuada lacus. Pellentesque sit amet justo eros. Sed ut erat nec risus blandit mattis. Ut nunc urna, ultrices a nisi eu, condimentum hendrerit nulla.</p>
@@ -60,14 +82,14 @@
   });
 
   var nodes = [
-    {name: "Microsoft", "url": "#source1"},
+    {name: "The New Student (Newton)", "url": "#source1"},
     {name: "Amazon", "url": "#source2"},
     {name: "HTC", "url": "#source3"},
     {name: "Samsung", "url": "#source4"},
     {name: "Apple", "url": "#source5"},
     {name: "Nokia", "url": "#source6"},
     {name: "HTC", "url": "#source7"},
-    {name: "Barnes & Noble", "url": "#source8"}
+    {name: "Barnes & Noble", "url": "#source8"},
   ];
 
   var links = [
