@@ -2,7 +2,7 @@
 .link {
   fill: none;
   stroke: #666;
-  stroke-width: 1.5px;
+  stroke-width: 2px;
 }
 
 #agree {
@@ -35,6 +35,7 @@ text {
 
 circle:hover {
   fill: yellow;
+  cursor: pointer;
 }
 
 /* text */ 
@@ -45,4 +46,7 @@ circle:hover {
 .scroll {
   height: 300px;
   overflow: scroll;
+  padding: 1%;
+  border: 1.5px solid #ccc;
+  box-shadow: 1px 1px 1px #ccc;
 }

@@ -5,6 +5,7 @@
   <link rel="stylesheet" href="main.css">
   <script src="http://d3js.org/d3.v3.min.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
 </head>
 
 <body>
@@ -39,15 +40,20 @@
   </div>
 </div>
 
+  <div style="text-align:center">
+    <p>Click nodes to jump to source.</br>
+    <span style="color:red"> Disagreements</span> vs. <span style="color:green">Agreements</span></p>
+  </div>
+
   <script>
   $(document).ready(function(){
-      $( "#notes" ).hover(
-      function() {
-        $( this ).append( $( "<span> ***</span>" ) );
-      }, function() {
-        $( this ).find( "span:last" ).remove();
-      }
-    );
+
+    $('a').click(function(){
+        $('html, body').animate({
+            scrollTop: $( $(this).attr('href') ).offset().top
+        }, 500);
+        return false;
+    });
 
   });
 
@@ -74,13 +80,13 @@
   ];
 
   var width = 960,
-      height = 500;
+      height = 300;
 
   var force = d3.layout.force()
       .nodes(d3.values(nodes))
       .links(links)
       .size([width, height])
-      .linkDistance(60)
+      .linkDistance(100)
       .charge(-300)
       .on("tick", tick)
       .start();
@@ -112,7 +118,7 @@
   var circle = svg.append("g").selectAll("circle")
       .data(force.nodes())
     .enter().append("circle")
-      .attr("r", 6) 
+      .attr("r", 10) 
       .on('click', function(d, i) {
         window.location.href = d.url;
       })
@@ -121,7 +127,8 @@
   var text = svg.append("g").selectAll("text")
       .data(force.nodes())
     .enter().append("text")
-      .attr("x", 12)
+      .style("font-size","18px")
+      .attr("x", 15)
       .attr("y", ".31em")
       .attr("xlink:href", function (d) {
           return "http://google.com/" + d.name;
@@ -150,5 +157,4 @@
   }
   </script>
 
-  <div>Click nodes to jump to source.</div>
 </body> 
