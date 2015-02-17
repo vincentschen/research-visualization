@@ -3,6 +3,7 @@
   <meta charset="utf-8">
   <title> Text in Conversation | Research Visualization </title> 
   <link rel="stylesheet" href="main.css">
+  <link href='http://fonts.googleapis.com/css?family=Lato:300,400|Source+Sans+Pro:300,400' rel='stylesheet' type='text/css'>
   <script src="http://d3js.org/d3.v3.min.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
@@ -10,7 +11,8 @@
 
 <body>
   <div class="container">
-    <h1>A Culture of "Getting In"</h1>
+    <h3>Text in Conversation | Vincent Chen<h3> 
+    <h1>Millennial Education: A Culture of "Getting In"</h1>
     <div class="scroll">
     <h2 id="source1"> Source 1 </h2>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi lobortis vitae dolor condimentum aliquam. Nam congue, diam sit amet venenatis luctus, risus massa eleifend magna, et luctus erat elit sed urna. Sed auctor mattis enim vel eleifend. In blandit sem a pharetra imperdiet. Donec placerat enim vulputate semper malesuada. Donec vulputate libero sed justo bibendum imperdiet. Mauris tincidunt turpis elit, eget porttitor lectus porta in. Donec dapibus ante quis nulla elementum, vel lobortis justo congue. Maecenas sed maximus leo. Maecenas et arcu ultrices, suscipit ipsum vel, interdum ligula. Phasellus auctor consectetur mi vel venenatis. Donec eleifend nisl sit amet sapien ultrices interdum. Nulla ac rhoncus turpis, sit amet malesuada lacus. Pellentesque sit amet justo eros. Sed ut erat nec risus blandit mattis. Ut nunc urna, ultrices a nisi eu, condimentum hendrerit nulla.</p>
@@ -73,7 +75,7 @@
     {source: 2, target: 1, type: "agree"},
     {source: 4, target: 2, type: "disagree"},
     {source: 3, target: 5, type: "disagree"},
-    {source: 7, target: 6, type: "normal"},
+    {source: 7, target: 6, type: "relevant"},
     {source: 3, target: 6, type: "disagree"},
     {source: 6, target: 4, type: "disagree"},
     {source: 2, target: 4, type: "disagree"},
@@ -97,7 +99,7 @@
 
   // Per-type markers, as they don't inherit styles.
   svg.append("defs").selectAll("marker")
-      .data(["agree", "disagree", "normal"])
+      .data(["agree", "disagree", "relevant"])
     .enter().append("marker")
       .attr("id", function(d) { return d; })
       .attr("viewBox", "0 -5 10 10")
@@ -115,10 +117,11 @@
       .attr("class", function(d) { return "link " + d.type; })
       .attr("marker-end", function(d) { return "url(#" + d.type + ")"; });
 
+
   var circle = svg.append("g").selectAll("circle")
       .data(force.nodes())
     .enter().append("circle")
-      .attr("r", 10) 
+      .attr("r", 5) 
       .on('click', function(d, i) {
         window.location.href = d.url;
       })
@@ -130,9 +133,6 @@
       .style("font-size","18px")
       .attr("x", 15)
       .attr("y", ".31em")
-      .attr("xlink:href", function (d) {
-          return "http://google.com/" + d.name;
-      })
       .text(function(d) { return d.name; });
 
           //show text
