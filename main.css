@@ -48,7 +48,7 @@ circle:hover {
 }
 
 .scroll {
-  height: 300px;
+  height: 275px;
   overflow: scroll;
   padding: 1%;
   border: 1.5px solid #ccc;
@@ -58,6 +58,16 @@ circle:hover {
 h1 { 
   font-family: 'Lato', sans-serif;
   font-weight: 300;
+}
+
+#title {
+  position: absolute;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+#subtitle{
+
 }
 
 h2 {
@@ -70,6 +80,16 @@ h3 {
   font-weight: 300;
   text-align: right; 
   line-height: .25em;
+}
+
+ul {
+  list-style-type: none; 
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  display: inline;
 }
 
 p {
