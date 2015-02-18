@@ -2,7 +2,7 @@
 .link {
   fill: none;
   stroke: #666;
-  stroke-width: 2px;
+  stroke-width: 1px;
 }
 
 #agree {
@@ -19,6 +19,10 @@
 
 .link.disagree {
   stroke: red;
+}
+
+.link.relevant{
+  stroke-dasharray="5,5" d="M5 20 l215 0";
 }
 
 circle {

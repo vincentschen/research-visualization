@@ -189,24 +189,34 @@
   ];
 
   var links = [
-    {source: 0, target: 1, type: "agree"},
-    {source: 2, target: 1, type: "agree"},
-    {source: 4, target: 2, type: "disagree"},
-    {source: 3, target: 5, type: "disagree"},
-    {source: 7, target: 6, type: "relevant"},
-    {source: 3, target: 6, type: "disagree"},
-    {source: 6, target: 4, type: "disagree"},
-    {source: 2, target: 4, type: "disagree"},
+    {source: 0, target: 1, type: "agree"}, //Newton -> Deres
+    {source: 0, target: 8, type: "relevant"}, // Newton -> Stabiner
+    {source: 1, target: 4, type: "disagree"}, //Hagopian -> Make School
+    {source: 1, target: 3, type: "disagree"}, //Hagopian -> Kamanetz
+    {source: 1, target: 0, type: "relevant"}, //Hagopian -> Newton
+    {source: 2, target: 1, type: "agree"}, //Deresiewicz -> Hagopian
+    {source: 2, target: 0, type: "relevant"}, //Deresiewicz -> Newton
+    {source: 3, target: 1, type: "relevant"}, //Kamanetz -> Hagopian
+    {source: 4, target: 2, type: "disagree"}, //Make School -> Deresiewicz
+    {source: 5, target: 0, type: "relevant"}, //Abrams -> Newton
+    {source: 5, target: 1, type: "relevant"}, //Abrams -> Hagopian
+    {source: 5, target: 3, type: "disagree"}, //Abrams -> Kamanetz
+    {source: 6, target: 5, type: "agree"}, //Williams -> Abrams
+    {source: 6, target: 4, type: "agree"}, //Williams -> Make School
+    {source: 7, target: 2, type: "agree"}, //Stabiner -> Deresiewicz
+    {source: 8, target: 1, type: "disagree"}, //Chapman -> Deressiewicz
+    {source: 9, target: 0, type: "relevant"}, //Price -> Newton
+    {source: 9, target: 4, type: "agree"}, //Price -> Make School
   ];
 
   var width = 960,
-      height = 400;
+      height = 500;
 
   var force = d3.layout.force()
       .nodes(d3.values(nodes))
       .links(links)
       .size([width, height])
-      .linkDistance(150)
+      .linkDistance(200)
       .charge(-300)
       .on("tick", tick)
       .start();
@@ -224,7 +234,7 @@
       .attr("refX", 15)
       .attr("refY", -1.5)
       .attr("markerWidth", 6)
-      .attr("markerHeight", 6)
+      .attr("markerHeight", 10)
       .attr("orient", "auto")
     .append("path")
       .attr("d", "M0,-5L10,0L0,5");
@@ -251,10 +261,7 @@
       .style("font-size","13px")
       .attr("x", 15)
       .attr("y", ".31em")
-      .text(function(d) { return d.name; });
-
-          //show text
-      
+      .text(function(d) { return d.name; });      
 
   // Use elliptical arc path segments to doubly-encode directionality.
   function tick() {
